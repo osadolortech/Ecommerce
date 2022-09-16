@@ -42,12 +42,10 @@ class Product(models.Model):
 
 
 class Chart(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="user")
-    chart = models.ForeignKey(Product, on_delete=models.CASCADE,related_name="product_in_chart")
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="chart_items")
+    product= models.ForeignKey(Product, on_delete=models.CASCADE,related_name="product_in_chart")
 
-    @property
-    def item_in_chart(self):
-        return Chart.objects.filter(product_in_chart=self).count()
+   
 
 
 

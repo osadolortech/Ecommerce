@@ -20,9 +20,8 @@ class ProductSerilaizer(serializers.ModelSerializer):
         ]
 
 class ChartSerializer(serializers.ModelSerializer):
-    
     class Meta:
         model = Chart
         fields = [
-            "id","user","chart"
+            "id","user","product"
         ]
