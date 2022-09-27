@@ -1,8 +1,7 @@
-from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser, FormParser
-from .serializers import ProductSerilaizer,CategorySerializer,ChartSerializer
-from .models import Product,Category,Chart
+from .serializers import ProductSerilaizer,CategorySerializer,ChartSerializer,CheckoutSerializer
+from .models import Product,Category,Chart,Checkout
 from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .fulters import ProductFilter
@@ -30,4 +29,8 @@ class CategoryView(viewsets.ModelViewSet):
 class ChartView(viewsets.ModelViewSet):
     queryset = Chart.objects.all()
     serializer_class = ChartSerializer
+
+class CheckoutView(viewsets.ModelViewSet):
+    queryset = Checkout.objects.all()
+    serializer_class = CheckoutSerializer
     
