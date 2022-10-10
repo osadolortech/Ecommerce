@@ -33,4 +33,6 @@ class ChartView(viewsets.ModelViewSet):
 class CheckoutView(viewsets.ModelViewSet):
     queryset = Checkout.objects.all()
     serializer_class = CheckoutSerializer
+
+
     

@@ -29,8 +29,9 @@ class ChartSerializer(serializers.ModelSerializer):
         ]
 
 class CheckoutSerializer(serializers.ModelSerializer):
+    product_in_chart = ChartSerializer()
     class Meta:
         model = Checkout
         fields=[
-            "id","user","payment_on_delivery","card_payment"
+            "id","user","product_in_chart","payment_on_delivery","card_payment"
         ]
