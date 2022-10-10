@@ -53,7 +53,12 @@ class Checkout(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="checkout_items")
     payment_on_delivery = models.BooleanField(default=False)
     card_payment = models.BooleanField(default=False)
-   
+
+
+
+
+
+
 
 
 
