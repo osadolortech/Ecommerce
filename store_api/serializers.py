@@ -1,6 +1,3 @@
-
-from calendar import c
-from dataclasses import fields
 from rest_framework import serializers
 from .models import Product,Category,Chart,Checkout
 
@@ -22,6 +19,8 @@ class ProductSerilaizer(serializers.ModelSerializer):
         ]
 
 class ChartSerializer(serializers.ModelSerializer):
+
+    user = serializers.ReadOnlyField(source="user.email")
     class Meta:
         model = Chart
         fields = [
@@ -29,9 +28,9 @@ class ChartSerializer(serializers.ModelSerializer):
         ]
 
 class CheckoutSerializer(serializers.ModelSerializer):
-    product_in_chart = ChartSerializer()
+    user = serializers.ReadOnlyField(source = "user.name")
     class Meta:
         model = Checkout
         fields=[
-            "id","user","product_in_chart","payment_on_delivery","card_payment"
+            "id","user","payment_on_delivery","card_payment"
         ]
