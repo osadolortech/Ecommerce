@@ -1,6 +1,3 @@
-from itertools import product
-from pyexpat import model
-from tkinter import CASCADE
 from django.db import models
 from user.models import User
 
@@ -49,10 +46,13 @@ class Chart(models.Model):
     product= models.ForeignKey(Product, on_delete=models.CASCADE,related_name="product_in_chart")
 
 
+
 class Checkout(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="checkout_items")
     payment_on_delivery = models.BooleanField(default=False)
     card_payment = models.BooleanField(default=False)
+
+   
 
 
 
